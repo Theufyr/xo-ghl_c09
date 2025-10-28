@@ -1,0 +1,13 @@
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Node
+node_modules/
+dist/
+.parcel-cache
+
+# miscellaneous
+__stuff/
+info.txt

@@ -1,0 +1,21 @@
+{
+  "name": "xo-ghl_c09",
+  "version": "1.0.0",
+  "description": "Ce projet a pour objectif de **développer une application de quiz interactive** en utilisant les langages front-end **HTML**, **CSS** et **JavaScript**.",
+  "main": "index.js",
+  "scripts": {
+    "fWatch": "tsc --watch ./src/ts/main.ts --outDir ./dist",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Theufyr/xo-ghl_c09.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Theufyr/xo-ghl_c09/issues"
+  },
+  "homepage": "https://github.com/Theufyr/xo-ghl_c09#readme"
+}
