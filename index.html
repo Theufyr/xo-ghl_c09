@@ -8,5 +8,18 @@
         <script defer src="dist/main.js" type="module"></script>
     </head>
     <body>
+        <main id="quiz">
+            <h1>Quiz JavaScript</h1>
+            <div id="question-container">
+                <p id="question"></p>
+                <div id="answers"></div>
+            </div>
+            <p id="feedback" aria-live="polite"></p>
+            <div id="progress"></div>
+            <div id="actions">
+                <button id="start-btn">Commencer le quiz</button>
+                <button id="next-btn" disabled>Question suivante</button>
+            </div>
+        </main>
     </body>
 </html>
