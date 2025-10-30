@@ -19,6 +19,7 @@ export default arcaneMajor;
 
 
 
+
 //--------------------------------- TAROT MAJEUR ---------------------------------//
 //0.le fou  est un symbole de prudence et de planification?
 //réponse : faux
