@@ -1,2 +1,2 @@
-import  arcaneMajor  from './database.js';
+import arcaneMajor from "./database.js";
 console.log(arcaneMajor.name);
