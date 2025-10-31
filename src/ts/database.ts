@@ -1,13 +1,43 @@
-const arcaneMajor: { name: string, question: string, answer1: string, answer2: string, answer3: string, answer4: string, ok: number } = {
-        name: "Le Fou",
-        question: "Le Fou est-il un symbole de :",
-        answer1: "Prudence",
-        answer2: "Planification",
-        answer3: "Réflexion",
-        answer4: "Spontanéité",
-        ok: 4
-};
-export default arcaneMajor;
+// le script doit mélanger les propositions et la réponse
+
+// const arcaneDatabase = [
+// const arcaneDatabase: any = [
+// const arcaneDatabase: Array<{cardname: string, question: string, answer1: string, answer2: string, answer3: string, answer4: string, ok: number} | undefined> = [
+const arcaneDatabase: {cardname: string, question: string, proposition1: string, proposition2: string, proposition3: string, answer: string}[] = [
+        {
+                cardname: "Le Fou",
+                question: "Le Fou est-il un symbole de :",
+                proposition1: "Prudence",
+                proposition2: "Planification",
+                proposition3: "Réflexion",
+                answer: "Spontanéité",
+        },
+        {
+                cardname: "Le Bateleur",
+                question: "Qu'est-ce que le Bateleur ne représente pas ?",
+                proposition1: "Le commencement",
+                proposition2: "L'énergie créatrice",
+                proposition3: "Le potentiel infini",
+                answer: "La rigueur",
+        },
+        {
+                cardname: "Le Papesse",
+                question: "La Papesse est associée à :",
+                proposition1: "L'action",
+                proposition2: "L'impulsivité",
+                proposition3: "L'ignorance",
+                answer: "La sagesse",
+        },
+        {
+                cardname: "L'Impératrice",
+                question: "La Papesse est associée à :",
+                proposition1: "La créativité",
+                proposition2: "La fertilité",
+                proposition3: "L'expression de soi",
+                answer: "L'inertie'",
+        }
+];
+export default arcaneDatabase;
 
 //--------------------------------- TAROT MAJEUR ---------------------------------//
 //0.le fou  est un symbole de prudence et de planification?
