@@ -1,6 +1,6 @@
 import arcaneDatabase from "./database.js";
-import arcaneDraw from "./draw.js";
-arcaneDraw();
+import drawCard from "./draw.js";
+console.log(drawCard);
 
 import arcaneTrial from "./trial.js";
 arcaneTrial();
