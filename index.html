@@ -1,26 +1,46 @@
 <!DOCTYPE html>
 <html lang="fr-FR">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Quizz</title>
-        <link rel="stylesheet" href="src/styles/main.css"/>
-        <script defer src="dist/main.js" type="module"></script>
-    </head>
-    <body>
-        <main id="quiz">
-            <h1>Quiz JavaScript</h1>
-            <div id="question-container">
-                <p id="question"></p>
-                <div id="answers"></div>
-            </div>
-            <p id="feedback" aria-live="polite"></p>
-            <div id="progress"></div>
-            <div id="actions">
-                <button id="start-btn">Commencer le quiz</button>
-                <button id="next-btn" disabled>Question suivante</button>
-            </div>
-        </main>
-        <footer></footer>
-    </body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quizz</title>
+    <link rel="stylesheet" href="src/styles/main.css" />
+    <script defer src="dist/main.js" type="module"></script>
+  </head>
+  <body>
+    <header>
+      <h1>Devine Quizz</h1>
+      <img src="" alt="" />
+    </header>
+    <main>
+      <section id="rules">
+        <h2>Déroulement de la séance</h2>
+        <div id="explanation"></div>
+      </section>
+      <section id="draw">
+        <h2>Tirage de carte</h2>
+        <button id="draw_button" type="button">Mélange ton destin</button>
+        <div id="cards"></div>
+      </section>
+      <section id="trial">
+        <h2>Épreuve</h2>
+        <div id="question"></div>
+        <div id="hourglass"></div>
+        <div id="answers">
+          <div id="answer1"></div>
+          <div id="answer2"></div>
+          <div id="answer3"></div>
+          <div id="answer4"></div>
+        </div>
+      </section>
+      <section id="validation">
+        <h2>Validation</h2>
+        <img src="" alt="Ton certificat" />
+        <div id="certification"></div>
+      </section>
+    </main>
+    <footer>
+        <div id="authors"></div>
+    </footer>
+  </body>
 </html>
