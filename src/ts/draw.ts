@@ -1,57 +1,89 @@
 import arcaneDatabase from "./database.js";
-let drawnCards: number[] = [];
-// recupere les cartes depuis la base de donnee
-let cardsDisplay: number[] = [];
-arcaneDatabase.map((value, index) => cardsDisplay.push(index));
-let drawCard = 3;
-// on eleve les carte déjà tirée de la base de donnée pour éviter les doublons
-function arcaneDraw() {
-  if (drawnCards.length > 0) {
-    drawnCards.forEach((value) => {
-      cardsDisplay = cardsDisplay.splice(value);
-      console.log(value);
-    });
+
+/// déclaration de variables
+let drawnCards: number[] = []; // tous les index des cartes déjà tirées
+let cardsDeck: number[] = []; // tous les index des cartes en base de données
+arcaneDatabase.map((value, index) => cardsDeck.push(index));
+
+// fonction de mélange
+function shuffleArray(array: any[]): void {
+  let i: number = array.length;
+  while (i) {
+    const j: number = Math.floor(Math.random() * i--);
+    [array[i], array[j]] = [array[j], array[i]];
   }
 }
-arcaneDraw();
-console.log("test");
 
-// un melange des cartes est effectué pour garantir l'aléatoire
-function shuffleCards(array: any) {
-    let m: number = array.length;
-    while(m) {
-        const i: number = Math.floor(Math.random() * m--);
-        [array[m], array[i]] = [array[i], array[m]];
-    }
-    return array;
-}
-console.table(cardsDisplay);
-shuffleCards(cardsDisplay);
-
-console.table(cardsDisplay);
-//affiche toute le carte en face cachee
-    let drawStatu: boolean = true;
-
-    cardsDisplay.forEach((value) => {
-      const cardsDisplay: any = document.createElement("div");
-      cardsDisplay.textContent = value;
-      document.querySelector("#cards")?.appendChild(cardsDisplay);
-                cardsDisplay.addEventListener("click", () => {
-      if (drawStatu === true) {
-                    console.log("je choisi la carta:" + value)
-                //   on met en memoire la carte tiree
-                drawnCards.push(2);
-                // affiche la carte tirée 
-                cardsDisplay.textContent = "carte choisi";
-                //arrete le tirage
-                drawStatu = false;
-      }
-console.log(drawStatu);
-                });
-
+// on enlève les cartes déjà tirées qu'elles soient à nouveau tirées
+function deckUpdate(drawned: number[], all: number[]): number[] {
+  if (drawned.length > 0) {
+    drawned.forEach((value) => {
+      all = all.splice(value);
     });
-// demande une carte a l'utilisateur
+  }
+  return all;
+}
 
+// on enlève du paquet les cartes déjà titrées
+// et on mélange le paquet
+cardsDeck = deckUpdate(drawnCards, cardsDeck);
+shuffleArray(cardsDeck);
+
+// on affiche toutes le cartes face cachée
+let drawStatus: boolean = true;
+cardsDeck.forEach((value) => {
+  // on crée l'élément image de la carte face cachée
+  const cardBack: HTMLImageElement = document.createElement("img");
+  cardBack.src  = "./src/assets/images/back.png";
+  cardBack.alt = "Carte de Tarot face cachée";
+  // on ajoute la carte au paquet
+  document.querySelector("#deck")?.appendChild(cardBack);
+
+  // si la carte est choisie :
+  cardBack.addEventListener("click", () => {
+    if (drawStatus === true) {
+      // on retire la carte du paquet
+      cardBack.style.display = "none";
+      drawnCards.push(value);
+// --------------------------------------------------------------------
+// save localStorage
+// --------------------------------------------------------------------
+      // on affiche la carte tirée
+      const cardDisplay = <HTMLImageElement>document.querySelector("#selected");
+      cardDisplay.src  = "./src/assets/images/" + value + ".png";
+      // on arrête le tirage
+      drawStatus = false;
+      // on affiche la question
+      const questionElement = <HTMLElement>document.querySelector("#question");
+      const questionDisplay: any = arcaneDatabase[value]?.question;
+      questionElement.textContent  = questionDisplay;
+      // on mélange et on affiche les réponses
+      let answersList = [
+                          arcaneDatabase[value]?.proposition1,
+                          arcaneDatabase[value]?.proposition2,
+                          arcaneDatabase[value]?.proposition3,
+                          arcaneDatabase[value]?.answer
+                        ];
+      shuffleArray(answersList);
+console.table(answersList);
+      answersList.forEach((answerText: any) => {
+console.log(answerText);
+// --------------------------------------------------------------------
+// faire une fonction avec le code ci-dessous pour l'utiliser ici et 
+// dans le while du bloc TIRAGE de main.ts
+// --------------------------------------------------------------------
+        const buttonContent: Text = document.createTextNode(answerText);
+        const choiceButton: HTMLButtonElement = document.createElement("button");
+        choiceButton.title  = "Réponse : " + answerText;
+        choiceButton.appendChild(buttonContent);
+        // on crée une action quand le bouton est cliqué
+      
+        // on ajoute le bouton à la liste des propositions
+        document.querySelector("#answers")?.appendChild(choiceButton);
+      });
+    }
+  });
+});
 
 //--------------------- TAROT MAJEUR ---------------------------------//
 // verifie la reponse de l'utilisateur
@@ -71,6 +103,7 @@ console.log(drawStatu);
 // le jeu doit etre securise pour proteger les donnees des utilisateurs
 // le jeu doit respecter la vie privee des utilisateurs
 
-console.log("test Draw, Arcane Major Arcana cards...");
+console.log("test");
 // Implementation for drawing Arcane Major Arcana cards goes here
+let drawCard = 3;
 export default drawCard;
