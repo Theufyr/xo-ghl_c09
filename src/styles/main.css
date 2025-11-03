@@ -21,17 +21,30 @@ body {
     color: ___couleur de la font___;
     text-align: ___alignement textes et éléments___;
     background: ___image et/ou couleur de fond___;
-    */
-  background-image: url(https://www.leadluce.co.jp/hapisele/wp-content/uploads/2024/04/uranaitiba-450x450.webp);
-  background-size: cover;
+  /*
   background-position: center;
   background-repeat: no-repeat;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-size: contain;
   justify-content: center;
-  padding: 20px;
+  padding: 20px;*/
+}
+#draw {
+  width: 100%;
+   height: 100vh;
+}
+#diviner {
+
+  width: 45%;
+  
+
+}
+#deck {
+  width: 100%;
+   height: 20%;
 }
 h1,
 h2 {
@@ -52,6 +65,10 @@ span {
 img {
   margin: 5px;
   width: 50px;
+}
+main {
+  display: flex;
+  justify-content: center;
 }
 #deck,
 #answers {
