@@ -1,5 +1,6 @@
 import arcaneDatabase from "./database.js";
 import drawCard from "./draw.js";
+import createAction from "./createAction.js";
 console.log(drawCard);
 
 import arcaneTrial from "./trial.js";
@@ -27,16 +28,15 @@ if (verifStorage !== null) {
 // liste de boutons pour choisir le nombre de cartes du tirage (nb de questions du quizz)
 // seulement un nombre pair et entre 4 et 22 compris
 let drawNumbers: number = 4;
+// on crée un bouton pour chaque type de tirage
 while (drawNumbers <= 22) {
-    // on crée un bouton
-    const buttonContent: Text = document.createTextNode(`${drawNumbers}`);
-    const choiceButton: HTMLButtonElement = document.createElement("button");
-    choiceButton.title  = `Tirage de ${drawNumbers} cartes`;
-    choiceButton.appendChild(buttonContent);
-    // on crée une action quand le bouton est cliqué
-  
-    // on ajoute le bouton à la liste des propositions
-    document.querySelector("#draw_selection")?.appendChild(choiceButton);
+    // envoyer :
+    // - id du bouton
+    // - id du block dans lequel ajouter les boutons
+    //   (qui servira aussi à savoir quel type d'action aura le bouton)
+    // - le texte affiché dans le bouton
+    // - le titre ou alt informant de sa fonctionnalité
+    createAction(drawNumbers, "draw_selection", `${drawNumbers}`, `Tirage de ${drawNumbers} cartes`);
     drawNumbers = (drawNumbers + 2);
 }
 // si aucune carte n'est sélectionnée, on affiche l'encart "#draw"

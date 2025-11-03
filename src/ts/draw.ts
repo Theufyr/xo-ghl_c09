@@ -1,8 +1,9 @@
 import arcaneDatabase from "./database.js";
+import createAction from "./createAction.js";
 
 /// déclaration de variables
-let drawnCards: number[] = []; // tous les index des cartes déjà tirées
-let cardsDeck: number[] = []; // tous les index des cartes en base de données
+let drawnCards: number[] = [];  // tous les index des cartes déjà tirées
+let cardsDeck: number[] = [];   // tous les index des cartes en base de données
 arcaneDatabase.map((value, index) => cardsDeck.push(index));
 
 // fonction de mélange
@@ -66,20 +67,15 @@ cardsDeck.forEach((value) => {
                         ];
       shuffleArray(answersList);
 console.table(answersList);
-      answersList.forEach((answerText: any) => {
+      answersList.forEach((answerText: any, index: number) => {
 console.log(answerText);
-// --------------------------------------------------------------------
-// faire une fonction avec le code ci-dessous pour l'utiliser ici et 
-// dans le while du bloc TIRAGE de main.ts
-// --------------------------------------------------------------------
-        const buttonContent: Text = document.createTextNode(answerText);
-        const choiceButton: HTMLButtonElement = document.createElement("button");
-        choiceButton.title  = "Réponse : " + answerText;
-        choiceButton.appendChild(buttonContent);
-        // on crée une action quand le bouton est cliqué
-      
-        // on ajoute le bouton à la liste des propositions
-        document.querySelector("#answers")?.appendChild(choiceButton);
+        // envoyer :
+        // - id du bouton
+        // - id du block dans lequel ajouter les boutons
+        //   (qui servira aussi à savoir quel type d'action aura le bouton)
+        // - le texte affiché dans le bouton
+        // - le titre ou alt informant de sa fonctionnalité
+        createAction(index, "answers", answerText, "Réponse : " + answerText);
       });
     }
   });
