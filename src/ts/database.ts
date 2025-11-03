@@ -5,127 +5,180 @@
 // const arcaneDatabase: Array<{cardname: string, question: string, answer1: string, answer2: string, answer3: string, answer4: string, ok: number} | undefined> = [
 const arcaneDatabase: {cardname: string, question: string, proposition1: string, proposition2: string, proposition3: string, answer: string}[] = [
         {
-                cardname: "Le Fou",
-                question: "Le Fou est-il un symbole de :",
+                cardname: "",
+                question: "Le Fou est-il un symbole de",
                 proposition1: "Prudence",
                 proposition2: "Planification",
                 proposition3: "Réflexion",
                 answer: "Spontanéité",
         },
         {
-                cardname: "Le Bateleur",
-                question: "Qu'est-ce que le Bateleur ne représente pas ?",
+                cardname: "I",
+                question: "Le Bateleur ne représente pas",
                 proposition1: "Le commencement",
                 proposition2: "L'énergie créatrice",
                 proposition3: "Le potentiel infini",
                 answer: "La rigueur",
         },
         {
-                cardname: "Le Papesse",
-                question: "La Papesse est associée à :",
+                cardname: "II",
+                question: "La Papesse est associée à",
                 proposition1: "L'action",
                 proposition2: "L'impulsivité",
                 proposition3: "L'ignorance",
                 answer: "La sagesse",
         },
         {
-                cardname: "L'Impératrice",
-                question: "La Papesse est associée à :",
+                cardname: "III",
+                question: "L'Impératrice ne represente pas",
                 proposition1: "La créativité",
                 proposition2: "La fertilité",
                 proposition3: "L'expression de soi",
-                answer: "L'inertie'",
+                answer: "L'inertie",
+        },
+        {
+                cardname: "IIII",
+                question: "L'Empereur est un symbole",
+                proposition1: "De chaos",
+                proposition2: "De désordre",
+                proposition3: "D'instabilité",
+                answer: "De contrôle rationnel",
+        },
+        {
+                cardname: "V",
+                question: "Le Pape n'est pas associé à",
+                proposition1: "La tradition",
+                proposition2: "La spiritualité",
+                proposition3: "La transmission du savoir",
+                answer: "L'indépendance",
+        },
+        {
+                cardname: "VI",
+                question: "L'Amoureux ne représente pas",
+                proposition1: "Les choix",
+                proposition2: "Les relations",
+                proposition3: "L'harmonie",
+                answer: "L'indécision",
+        },
+        {
+                cardname: "VII",
+                question: "Le Chariot ne symbolise pas",
+                proposition1: "La discipline",
+                proposition2: "La détermination",
+                proposition3: "Le contrôle de soi",
+                answer: "La défaite",
+        },
+        {
+                cardname: "VIII",
+                question: "La Justice est associée",
+                proposition1: "Au déséquilibre",
+                proposition2: "À l'iresponsabilité",
+                proposition3: "À l'immoralité",
+                answer: "À la vérité",
+        },
+        {
+                cardname: "VIIII",
+                question: "L'Hermite ne représente pas",
+                proposition1: "La contemplation",
+                proposition2: "La solitude",
+                proposition3: "La réflexion",
+                answer: "La superficialité",
+        },
+        {
+                cardname: "X",
+                question: "La Roue de Fortune n'est pas un symbole",
+                proposition1: "D'inévitabilité du destin",
+                proposition2: "De changement",
+                proposition3: "Des hauts et des bas de la vie",
+                answer: "De routine",
+        },
+        {
+                cardname: "XI",
+                question: "La Force est associée à la",
+                proposition1: "Peur",
+                proposition2: "Faiblesse",
+                proposition3: "Patience",
+                answer: "Résilience",
+        },
+        {
+                cardname: "XII",
+                question: "Le Pendu ne représente pas",
+                proposition1: "Le sacrifice",
+                proposition2: "Le lâcher prise",
+                proposition3: "La croissance personnelle",
+                answer: "La perception unique",
+        },
+        {
+                cardname: "XIII",
+                question: "L'Arcane XIII ne symbolise pas",
+                proposition1: "La transformation",
+                proposition2: "La renaissance",
+                proposition3: "Le changement",
+                answer: "L'immuabilité",
+        },
+        {
+                cardname: "XIIII",
+                question: "La Tempérance est associée",
+                proposition1: "À l'extrême",
+                proposition2: "Au déséquilibre",
+                proposition3: "À l'incompréhension",
+                answer: "L'harmonie",
+        },
+        {
+                cardname: "XV",
+                question: "Le Diable est associé",
+                proposition1: "À la liberté",
+                proposition2: "À l'indépendance",
+                proposition3: "Au courage",
+                answer: "À l'attachement",
+        },
+        {
+                cardname: "XVI",
+                question: "La Maison Dieu ne représente pas",
+                proposition1: "La révélation",
+                proposition2: "Le bouleversement",
+                proposition3: "La transformation",
+                answer: "La construction",
+        },
+        {
+                cardname: "XVII",
+                question: "Les Étoiles sont un symbole",
+                proposition1: "De flou mental",
+                proposition2: "De déconnexion spirituelle",
+                proposition3: "De nostalgie",
+                answer: "D'espoir",
+        },
+        {
+                cardname: "XVIII",
+                question: "La Lune est associée",
+                proposition1: "À la clarté",
+                proposition2: "À la certitude",
+                proposition3: "Au courage",
+                answer: "À l'intuition",
+        },
+        {
+                cardname: "XVIIII",
+                question: "Le Soleil ne représente pas",
+                proposition1: "Le succès",
+                proposition2: "La vitalité",
+                proposition3: "L'optimisme",
+                answer: "L'inertie",
+        },
+        {
+                cardname: "XX",
+                question: "Le Jugement est un symbole",
+                proposition1: "De stagnation",
+                proposition2: "D'inaction",
+                proposition3: "D'inconscience",
+                answer: "D'éveil",
+        },
+        {
+                cardname: "XXI",
+                question: "Le Monde n'est pas associé à",
+                proposition1: "L'achèvement",
+                proposition2: "L'intégration",
+                proposition3: "L'accomplissement",
+                answer: "La perplexité",
         }
 ];
 export default arcaneDatabase;
-
-//--------------------------------- TAROT MAJEUR ---------------------------------//
-//0.le fou  est un symbole de prudence et de planification?
-//réponse : faux
-//Descrption : Le Fou représente l'innocence, la spontanéité et les nouveaux départs, symbolisant souvent un voyage imprévisible rempli de possibilités infinies.
-
-//1.Le Bateleur (Le magicien) représente le commencement, l'énergie créatrice et le potentiel infini? 
-//réponse : vrai
-//Descrption : C'est une carte qui symbole de nouveaux départs, de la créativité et de l'enthousiasme.
-
-//2.La Papesse est associée à l'action et à l'impulsivité?
-//réponse : faux
-//Descrption : La Papesse symbolise la sagesse, l'intuition et la connaissance intérieure.
-
-//3.L'Impératrice represente la créativité, la fertilité et l'expression de soi?
-//réponse : vrai
-//Descrption : C'est une carte qui incarne la croissance, l'abondance et la connexion avec la nature, ainsi que l'expression de soi à travers des moyens créatifs.
-
-//4.L'Empereur est un symbole de chaos et de désordre?
-//réponse : faux
-//Descrption : L'Empereur représente l'ordre, la structure et l'autorité, incarnant la stabilité et le leadership et le contrôle rationnel.
-
-//5.Le Pape est associé à la rébellion et à l'indépendance?
-//réponse : faux
-//Descrption : Le Pape symbolise la tradition, la spiritualité et les enseignements religieux, représentant la sagesse collective, la transmission du savoir et les valeurs morales.
-
-//6.L'Amoureux représente les choix, les relations et l'harmonie?
-//réponse : vrai
-//Descrption : C'est une carte qui incarne l'amour, l'union et l'équilibre dans les relations, ainsi que la prise de décisions importantes concernant le cœur et les relations personnelles.
-
-//7.Le Chariot symbolise la victoire, la détermination et le contrôle de soi?
-//réponse : vrai
-//Descrption : C'est une carte qui représente la maîtrise de soi, la confiance en soi et la capacité à surmonter les obstacles grâce à la volonté et à la discipline.
-
-//8.La Justice est associée à l'injustice et au déséquilibre?
-//réponse : faux
-//Descrption : La Justice symbolise l'équité, la vérité et la responsabilité, représentant l'importance de prendre des décisions justes et équilibrées basées sur des principes moraux et éthiques.
-
-//9.L'Hermite représente la solitude, la réflexion et la sagesse intérieure?
-//réponse : vrai
-//Descrption : C'est une carte qui incarne la recherche de la vérité intérieure, la contemplation et la quête de sagesse à travers l'introspection et la solitude.
-
-//10.La Roue de Fortune est un symbole de changement, de cycles et de destin?
-//réponse : vrai
-//Descrption : C'est une carte qui représente les hauts et les bas de la vie, les cycles de changement et l'inévitabilité du destin, soulignant l'importance de s'adapter aux fluctuations de la vie.
-
-//11.La Force est associée à la peur et à la faiblesse?
-//réponse : faux
-//Descrption : La Force symbolise le courage, la maîtrise de soi et la résilience, représentant la capacité à surmonter les défis avec compassion, patience et détermination intérieure.
-
-//12.Le Pendu représente le sacrifice, la suspension et une nouvelle perspective?
-//réponse : vrai
-//Descrption : C'est une carte qui incarne la nécessité de lâcher prise, de voir les choses sous un angle différent et de faire des sacrifices pour la croissance personnelle et spirituelle.
-
-//13.La Mort est un symbole de fin et de nouveaux commencements?
-//réponse : vrai
-//Descrption : La Mort représente la transformation, le changement et la renaissance, symbolisant la fin d'un cycle et le début d'un nouveau chapitre dans la vie.
-
-//14.La Tempérance est associée à l'extrême et au déséquilibre?
-//réponse : faux
-//Descrption : La Tempérance symbolise l'équilibre, la modération et l'harmonie, représentant la capacité à trouver un terrain d'entente, à intégrer des opposés et à maintenir la paix intérieure à travers la patience et la compréhension.
-
-//15.Le Diable est associé à la liberté et à l'indépendance?
-//réponse : faux
-//Descrption : Le Diable symbolise l'attachement, la tentation et les aspects sombres de la nature humaine, représentant souvent les dépendances, les peurs et les illusions qui entravent la liberté personnelle.  
-
-//16.La Tour représente la stabilité et la sécurité?
-//réponse : faux
-//Descrption : La Tour symbolise la destruction soudaine, le bouleversement et la révélation, représentant souvent des changements inattendus qui ébranlent les fondations établies et conduisent à une transformation profonde.    
-
-//17.L'Étoile est un symbole d'espoir, d'inspiration et de guérison?
-//réponse : vrai
-//Descrption : C'est une carte qui incarne la foi en l'avenir, la clarté mentale et la connexion spirituelle, offrant un sentiment de paix et de renouveau après des périodes de difficulté.
-
-//18.La Lune est associée à la clarté et à la certitude?
-//réponse : faux
-//Descrption : La Lune symbolise l'intuition, les émotions et les aspects cachés de la psyché, représentant souvent l'incertitude, les illusions et les peurs subconscientes qui peuvent obscurcir la perception de la réalité. 
-
-//19.Le Soleil représente la joie, le succès et la vitalité?
-//réponse : vrai
-//Descrption : C'est une carte qui incarne l'optimisme, la clarté et l'énergie positive, symbolisant la réussite, la croissance personnelle et le bonheur dans la vie.
-
-//20.Le Jugement est un symbole de stagnation et d'inaction?
-//réponse : faux
-//Descrption : Le Jugement symbolise la renaissance, l'éveil et la prise de conscience, représentant souvent un moment de vérité où l'on évalue ses actions passées et prend des décisions importantes pour l'avenir.
-
-//21.Le Monde est associé à l'achèvement, à l'intégration et à l'accomplissement?
-//réponse : vrai
-//Descrption : C'est une carte qui incarne la réalisation, l'harmonie et l'unité, symbolisant la fin d'un cycle important et le début d'une nouvelle phase de croissance et d'expansion dans la vie.
-
-//--------------------------------- TAROT MAJEUR ---------------------------------//
