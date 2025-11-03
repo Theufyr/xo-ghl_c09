@@ -11,55 +11,67 @@
 }
 */
 html {
-    /* taille moyenne de font en mobile-first et référence rem pour la page */
-    font-size: 14px;
+  /* taille moyenne de font en mobile-first et référence rem pour la page */
+  font-size: 14px;
 }
 body {
-    font-size: 1rem;
-    /* 
+  font-size: 1rem;
+  /* 
     font-family: ___nom perso pour la font des textes___;
     color: ___couleur de la font___;
     text-align: ___alignement textes et éléments___;
     background: ___image et/ou couleur de fond___;
     */
+  background-image: url(https://www.leadluce.co.jp/hapisele/wp-content/uploads/2024/04/uranaitiba-450x450.webp);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
 }
-h1, h2 {
-    font-size: 2rem;
-    /*
+h1,
+h2 {
+  font-size: 2rem;
+  /*
     font-family: ___nom perso pour la font des titres___;
     */
 }
 h2 {
-    font-size: 1.5rem;
-    /*
+  font-size: 1.5rem;
+  /*
     font-size: ___taille moyenne de font des sous-titres___;
     */
 }
 span {
-    font-size: 0.5rem;
+  font-size: 0.5rem;
 }
 img {
-    margin: 5px;
-    width: 50px;
+  margin: 5px;
+  width: 50px;
 }
-#deck, #answers {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+#deck,
+#answers {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 /* responsive mobile-first */
 @media (min-width: 640px) {
-    /* tablettes */
-    html {
-        /* taille moyenne de font et référence rem pour la page */
-        font-size: 16px;
-    }
+  /* tablettes */
+  html {
+    /* taille moyenne de font et référence rem pour la page */
+    font-size: 16px;
+  }
 }
 @media (min-width: 1024px) {
-    /* grands écrans */
-    html {
-        /* taille moyenne de font et référence rem pour la page */
-        font-size: 18px;
-    }
+  /* grands écrans */
+  html {
+    /* taille moyenne de font et référence rem pour la page */
+    font-size: 18px;
+  }
 }
