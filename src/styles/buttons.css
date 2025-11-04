@@ -1,23 +1,171 @@
+button:focus-visible {
+  outline: 2px solid #ffd166;
+  outline-offset: 3px;
+}
+button:active { transform: scale(0.97); }
+button[disabled], .off {
+  opacity: .5;
+  cursor: not-allowed;
+  filter: grayscale(30%);
+}
+
+/* --- Effet lame de lumière --- */
+button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -70%;
+  width: 55%;
+  height: 100%;
+  transform: skewX(-20deg);
+  background: linear-gradient(120deg, rgba(255,255,255,.35), transparent 60%);
+  transition: left .55s ease;
+  pointer-events: none;
+}
+button:hover::before { left: 130%; }
+
 button {
-    margin: 0.2rem;
-    padding: 0.2rem;
+  position: relative;
+  margin: 0.35rem;
+  padding: 0.6rem 1.1rem;
+  font-size: 0.9rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--fg-light);
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform .25s ease, box-shadow .35s ease, background .35s ease;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--accent-violet) 0%, var(--accent-gold) 100%);
+  box-shadow: 0 0 12px rgba(255, 209, 102, .4);
+  border: 1px solid rgba(255, 209, 102, .3);
+}
+
+button:hover {
+  background: linear-gradient(135deg, var(--accent-gold) 0%, var(--accent-violet) 100%);
+  box-shadow: 0 0 20px rgba(255, 223, 110, .8);
+  transform: translateY(-2px);
+}
+
+button.ok {
+  background: linear-gradient(135deg, #4caf50, #2e7d32);
+  box-shadow: 0 0 16px rgba(76,175,80,.6);
+}
+
+button.chosen {
+  background: linear-gradient(135deg, var(--accent-violet), #4a2370);
+  box-shadow: 0 0 20px rgba(164,126,248,.6);
+}
+
+button.off {
+  opacity: .4;
+  cursor: not-allowed;
+  filter: grayscale(30%);
+}
+
+button.ghost {
+  background: transparent;
+  border: 1px solid rgba(200,200,255,.3);
+  color: #d8d8ff;
+  text-shadow: 0 0 6px rgba(180,180,255,.3);
+}
+button.ghost:hover {
+  border-color: var(--accent-gold);
+  box-shadow: 0 0 12px rgba(164,126,248,.5), inset 0 0 6px rgba(255,255,255,.2);
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+button.link {
+  background: none;
+  border: none;
+  color: var(--accent-violet);
+  text-transform: none;
+  font-size: 1rem;
+  letter-spacing: 0.03em;
+  text-decoration: underline transparent;
+  transition: color .3s ease, text-decoration-color .3s ease;
+}
+button.link:hover {
+  color: var(--accent-gold);
+  text-decoration-color: var(--accent-gold);
+}
+
+/*button {
+    position: relative;
+    margin: 0.3rem;
+    padding: 0.5rem 1rem;
     height: 2rem;
-	font-size: 0.7rem;
-    color: white;
+	font-size: 0.85rem;
+    color: #fff;
+    text-transform: uppercase;
     border: none;
-    border-radius: 10px;
-    background: linear-gradient(-155deg, #f9c291, #836447);
+    border-radius: 12px;
+    background: linear-gradient(135deg, #f9c291, #836447);
     box-shadow: -1px 1px 3px #964d0b;
+    transition: all 0.3s ease;
+    overflow: hidden;
+  z-index: 0;
 }
 button.ok {
     cursor: pointer;
 }
-button.ok:hover {
-    background: linear-gradient(-155deg, #f9c291, #f98012);
+/* --- Effet de lumière magique survol --- */
+button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(120deg, rgba(255, 255, 255, 0.3), transparent);
+  transform: skewX(-20deg);
+  transition: all 0.5s ease;
+  z-index: 1;
 }
+/* --- Effet de survol : glow doré et ombre mouvante --- */
+button:hover {
+  background: linear-gradient(135deg, #ffd166, #a47ef8);
+  box-shadow: 0 0 15px rgba(255, 223, 110, 0.8),
+              0 0 25px rgba(164, 126, 248, 0.4);
+  transform: translateY(-2px);
+}
+/* --- Quand sélectionné (carte choisie) --- */
+button.chosen {
+  background: linear-gradient(135deg, #a47ef8, #4a2370);
+  box-shadow: 0 0 20px rgba(164, 126, 248, 0.6);
+}
+/* --- Quand désactivé (hors jeu) --- */
+button.off {
+  opacity: 0.4;
+  cursor: not-allowed;
+  filter: grayscale(40%);
+}
+/* --- Clic : effet pulsation magique --- */
+button:active {
+  transform: scale(0.97);
+  box-shadow: 0 0 10px rgba(255, 223, 110, 0.5);
+}
+/* --- Bouton validé / bonne réponse --- */
+button.ok {
+  background: linear-gradient(135deg, #f103034d, #2e7d32);
+  box-shadow: 0 0 12px rgba(76, 175, 80, 0.6);
+}
+button.ok:hover {
+  background: linear-gradient(135deg, #7f6af7, #7d2e72);
+}
+
 button.chosen {
     background: linear-gradient(-155deg, #f9c291, black);
 }
 button.off {
     opacity: 0.5;
+}
+@keyframes sparkle {
+  0%, 100% { box-shadow: 0 0 10px rgba(255, 224, 110, 0.877); }
+  50% { box-shadow: 0 0 20px rgba(164, 126, 248, 0.7); }
+}
+
+button {
+  animation: sparkle 3s infinite ease-in-out;
 }
