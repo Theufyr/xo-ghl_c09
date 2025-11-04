@@ -8,21 +8,22 @@
     <script defer src="dist/main.js" type="module"></script>
   </head>
   <body>
-    <header>
-      <h1>Divine Quizz</h1>
-      <img src="./src/assets/images/back.png" alt="Carte de Tarot face cachée" />
-    </header>
     <main>
       <section id="rules">
+      <h1>Divine Quizz</h1>
         <h2>Déroulement de la séance <span>(afficher / masquer)</span></h2>
         <div id="explanation"></div>
-      </section>
-      <section id="draw">
         <h2>Tirage de carte</h2>
         <div id="draw_selection">
           <h3>Mélange ton destin <span>(choisis le nombre d'arcane à tirer)</span></h3>
         </div>
-        <div id="deck"></div>
+        <div id="authors"></div>
+      </section>
+      <section id="draw">
+        <div id="draw_diviner">
+          <img id="diviner" src="./src/assets/images/diviner.jpg" alt="">
+          <div id="deck"></div>
+        </div>
       </section>
       <section id="trial">
         <h2>Épreuve</h2>
@@ -34,14 +35,11 @@
         </div>
         <button id="next" type="button">Question suivante</button>
       </section>
-      <section id="validation">
+    </main>
+    <footer id="validation">
         <h2>Validation</h2>
         <img src="./src/assets/images/back.png" alt="Ton certificat" />
         <div id="certification"></div>
-      </section>
-    </main>
-    <footer>
-        <div id="authors"></div>
     </footer>
   </body>
 </html>
