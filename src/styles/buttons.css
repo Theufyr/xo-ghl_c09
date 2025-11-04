@@ -18,3 +18,6 @@ button.ok:hover {
 button.chosen {
     background: linear-gradient(-155deg, #f9c291, black);
 }
+button.off {
+    opacity: 0.5;
+}

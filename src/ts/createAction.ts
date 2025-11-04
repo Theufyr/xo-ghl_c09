@@ -1,10 +1,15 @@
 // désactiver les boutons d'un block quand l'un d'eux a été cliqué
 function actionOff(id: number, buttonClass: string) {
-    // on récupère les boutons du block
+    // on récupère les boutons du block et on en fait un tableau
     const allButtons: HTMLCollection = document.getElementsByClassName(buttonClass);
-    allButtons.forEach((button: HTMLButtonElement) => {
-        if (button.id !== (buttonClass + id)) {
-            button.style.opacity = "0.5";
+    const allButtonsArray: Element[] = Array.from(allButtons);
+    allButtonsArray.forEach((button: Element) => {
+        // on marque le bouton cliqué
+        if (button.id == (buttonClass + id)) {
+            button.classList.replace("ok", "chosen");
+        // on grise tous les autres boutons
+        } else {
+            button.classList.replace("ok", "off");
         }
     });
 }
@@ -23,13 +28,15 @@ function createAction(id: number, blockId: string, text: string, title: string):
     // on le rend clickable et on l'identifie avec une classe
     choiceButton.className  = "ok " + blockId;
     // on définit son ID qu'on met en mémoire
-    choiceButton.id      = `{id}`;
+    choiceButton.id      = `${blockId}${id}`;
     // on crée une action quand le bouton est cliqué
     choiceButton.addEventListener("click", () => {
-        choiceButton.className  = "chosen";
-        // on grise les autres boutons
-        actionOff(id, blockId);
-    });
+        // s'il est clickable
+        if (choiceButton.classList.contains("ok")) {
+            // on change l'affichage des boutons
+            actionOff(id, blockId);
+        }
+        });
     // on ajoute le bouton à la liste des propositions
     document.querySelector("#" + blockId)?.appendChild(choiceButton);
 }
