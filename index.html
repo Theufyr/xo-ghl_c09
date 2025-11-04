@@ -11,12 +11,14 @@
     <main>
       <section id="rules">
       <h1>Divine Quizz</h1>
-        <h2>Déroulement de la séance <span>(afficher / masquer)</span></h2>
+        <h2>Déroulement de la séance <span class="small">(afficher / masquer)</span></h2>
         <div id="explanation"></div>
         <h2>Tirage de carte</h2>
         <div id="draw_selection">
-          <h3>Mélange ton destin <span>(choisis le nombre d'arcane à tirer)</span></h3>
+          <h3>Mélange ton destin <span class="small">(choisis le nombre d'arcane à tirer)</span></h3>
         </div>
+        <div>Score actuel : <span id="user_score"></span></div>
+        <div>Meilleur score : <span id="best_score"></span></div>
         <div id="authors"></div>
       </section>
       <section id="draw">
@@ -36,8 +38,8 @@
         <button id="next" type="button">Question suivante</button>
       </section>
     </main>
-    <footer id="validation">
-        <h2>Validation</h2>
+    <footer id="Confirmation">
+        <h2>Confirmation</h2>
         <img src="./src/assets/images/back.png" alt="Ton certificat" />
         <div id="certification"></div>
     </footer>

@@ -1,9 +1,4 @@
-// le script doit mélanger les propositions et la réponse
-
-// const arcaneDatabase = [
-// const arcaneDatabase: any = [
-// const arcaneDatabase: Array<{cardname: string, question: string, answer1: string, answer2: string, answer3: string, answer4: string, ok: number} | undefined> = [
-const arcaneDatabase: {cardname: string, question: string, proposition1: string, proposition2: string, proposition3: string, answer: string}[] = [
+const arcanesList: {cardname: string, question: string, proposition1: string, proposition2: string, proposition3: string, answer: string}[] = [
         {
                 cardname: "",
                 question: "Le Fou est-il un symbole de",
@@ -181,4 +176,4 @@ const arcaneDatabase: {cardname: string, question: string, proposition1: string,
                 answer: "La perplexité",
         }
 ];
-export default arcaneDatabase;
+export default arcanesList;

@@ -1,4 +1,4 @@
-import arcaneDatabase from "./database.js";
+import arcanesList from "./datas/arcanesList.js";
 import drawCard from "./draw.js";
 import createAction from "./createAction.js";
 console.log(drawCard);
@@ -6,23 +6,34 @@ console.log(drawCard);
 import arcaneTrial from "./trial.js";
 arcaneTrial();
 
-import arcaneValidation from "./validation.js";
-arcaneValidation();
+// on masque l'encart de certification
+const drawDisplay = <HTMLDivElement>document.querySelector("#certification");
+drawDisplay.style.display = (storageInfos.selectedCard < 0) ? "flex" : "none";
 
 // GESTION SAUVEGARDE
 // fonctions pour gérer les sauvegardes en localStorage
 import {setStorage, getStorage} from "./storage.js";
 // sauvegarde par défaut
-let storageInfos: {drawSelection: number[], selectedCard: number, userScore: number} = {
+let storageInfos: {drawSelection: number[], selectedCard: number, userScore: number, bestScore: number} = {
         drawSelection: new Array,
         selectedCard: -1,           // les index de cartes vont de 0 à 21 compris
-        userScore: 0
+        userScore: 0,
+        bestScore: 0
     }
 // récupération de sauvegarde déjà existante
-const verifStorage: {drawSelection: number[], selectedCard: number, userScore: number} | null = getStorage();
+const verifStorage: {drawSelection: number[], selectedCard: number, userScore: number, bestScore: number} | null = getStorage();
 if (verifStorage !== null) {
     storageInfos  = verifStorage;
 }
+// affichage des scores
+function scoreDisplay(id: string, score: number): void {
+    const changeScore: Text = document.createTextNode(`${score}`);
+    const oldScore = <HTMLDivElement>document.getElementById(id);
+   // document.querySelector("#user_score")?.appendChild(changeScore);
+    oldScore.textContent = changeScore.textContent;
+}
+scoreDisplay("user_score", storageInfos.userScore);
+scoreDisplay("best_score", storageInfos.bestScore);
 
 // TIRAGE
 // liste de boutons pour choisir le nombre de cartes du tirage (nb de questions du quizz)

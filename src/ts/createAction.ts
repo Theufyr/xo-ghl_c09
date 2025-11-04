@@ -1,5 +1,5 @@
 // désactiver les boutons d'un block quand l'un d'eux a été cliqué
-function actionOff(id: number, buttonClass: string) {
+function buttonsOff(id: number, buttonClass: string) {
     // on récupère les boutons du block et on en fait un tableau
     const allButtons: HTMLCollection = document.getElementsByClassName(buttonClass);
     const allButtonsArray: Element[] = Array.from(allButtons);
@@ -34,7 +34,11 @@ function createAction(id: number, blockId: string, text: string, title: string):
         // s'il est clickable
         if (choiceButton.classList.contains("ok")) {
             // on change l'affichage des boutons
-            actionOff(id, blockId);
+            buttonsOff(id, blockId);
+            // on crée l'action pour le choix du tirage de cartes
+            if (blockId == "draw_selection") {
+                
+            }
         }
         });
     // on ajoute le bouton à la liste des propositions

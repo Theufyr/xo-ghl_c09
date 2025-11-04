@@ -1,10 +1,10 @@
-import arcaneDatabase from "./database.js";
+import arcanesList from "./datas/arcanesList.js";
 import createAction from "./createAction.js";
 
 /// déclaration de variables
 let drawnCards: number[] = [];  // tous les index des cartes déjà tirées
 let cardsDeck: number[] = [];   // tous les index des cartes en base de données
-arcaneDatabase.map((value, index) => cardsDeck.push(index));
+arcanesList.map((value, index) => cardsDeck.push(index));
 
 // fonction de mélange
 function shuffleArray(array: any[]): void {
@@ -56,14 +56,14 @@ cardsDeck.forEach((value) => {
       drawStatus = false;
       // on affiche la question
       const questionElement = <HTMLElement>document.querySelector("#question");
-      const questionDisplay: any = arcaneDatabase[value]?.question;
+      const questionDisplay: any = arcanesList[value]?.question;
       questionElement.textContent  = questionDisplay;
       // on mélange et on affiche les réponses
       let answersList = [
-                          arcaneDatabase[value]?.proposition1,
-                          arcaneDatabase[value]?.proposition2,
-                          arcaneDatabase[value]?.proposition3,
-                          arcaneDatabase[value]?.answer
+                          arcanesList[value]?.proposition1,
+                          arcanesList[value]?.proposition2,
+                          arcanesList[value]?.proposition3,
+                          arcanesList[value]?.answer
                         ];
       shuffleArray(answersList);
 console.table(answersList);
