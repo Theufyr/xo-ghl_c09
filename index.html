@@ -10,52 +10,55 @@
   <body>
     <main>
       <section id="rules">
-      <h1>Divine Quizz</h1>
+        <h1>Divine Quizz</h1>
         <h2>Déroulement de la séance <span>(afficher / masquer)</span></h2>
         <div id="explanation"></div>
         <h2>Tirage de carte</h2>
         <div id="draw_selection">
-          <h3>Mélange ton destin <span>(choisis le nombre d'arcane à tirer)</span></h3>
+          <h3>
+            Mélange ton destin <span>(choisis le nombre d'arcane à tirer)</span>
+          </h3>
         </div>
         <div id="authors"></div>
       </section>
       <section id="draw">
         <div id="draw_diviner">
-          <img id="diviner" src="./src/assets/images/diviner.jpg" alt="">
-          <div id="deck"</div>
-         
-
+          <img id="diviner" src="./src/assets/images/diviner.jpg" alt="" />
+          <div id="deck"></div>
         </div>
       </section>
       <section id="trial">
         <h2>Épreuve</h2>
         <div>
-          <img id="selected" src="./src/assets/images/back.png" alt="Carte de Tarot face cachée" />
+          <img
+            id="selected"
+            src="./src/assets/images/back.png"
+            alt="Carte de Tarot face cachée"
+          />
           <div id="hourglass"></div>
           <div id="question"></div>
           <div id="answers"></div>
         </div>
         <!-- Soleil : pour actions ou tirages -->
-<button class="solar">Tirer</button>
-<button class="solar ok">Révéler</button>
+        <button class="solar">Tirer</button>
+        <button class="solar ok">Révéler</button>
 
-<!-- Lune : pour validation ou navigation -->
-<button class="lunar">Valider</button>
-<button class="lunar ok">Continuer</button>
+        <!-- Lune : pour validation ou navigation -->
+        <button class="lunar">Valider</button>
+        <button class="lunar ok">Continuer</button>
 
-<!-- Fantôme : transparent magique -->
-<button class="ghost">Rejouer</button>
+        <!-- Fantôme : transparent magique -->
+        <button class="ghost">Rejouer</button>
 
-<!-- Lien : texte enchanté discret -->
-<button class="link">Découvrir plus</button>
+        <!-- Lien : texte enchanté discret -->
+        <button class="link">Découvrir plus</button>
         <button id="next" type="button">Question suivante</button>
       </section>
     </main>
     <footer id="validation">
-        <h2>Validation</h2>
-        <img src="./src/assets/images/back.png" alt="Ton certificat" />
-        <div id="certification"></div>
+      <h2>Validation</h2>
+      <img src="./src/assets/images/back.png" alt="Ton certificat" />
+      <div id="certification"></div>
     </footer>
-
   </body>
 </html>
