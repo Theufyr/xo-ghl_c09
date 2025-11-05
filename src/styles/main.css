@@ -32,6 +32,41 @@ body {
   justify-content: center;
   padding: 20px;*/
 }
+/* Fond étoilé animé */
+.stars, .stars2, .stars3 {
+  position: fixed; inset: 0; pointer-events: none;
+  background-repeat: repeat; will-change: background-position; z-index: 0;
+}
+.stars {
+  opacity:.8;
+  background-image:
+    radial-gradient(1.6px 1.6px at 20px 30px, #fff 50%, transparent 51%),
+    radial-gradient(1.4px 1.4px at 120px 80px, #cfe7ff 50%, transparent 51%),
+    radial-gradient(1.2px 1.2px at 220px 50px, #9ee6ff 50%, transparent 51%);
+  background-size: 300px 300px;
+  animation: drift1 120s linear infinite;
+}
+.stars2 {
+  opacity:.55;
+  background-image:
+    radial-gradient(1.2px 1.2px at 60px 170px, #ffffff 50%, transparent 51%),
+    radial-gradient(1px 1px at 260px 140px, #d9ecff 50%, transparent 51%),
+    radial-gradient(1px 1px at 420px 220px, #b8d7ff 50%, transparent 51%);
+  background-size: 450px 450px;
+  animation: drift2 180s linear infinite reverse;
+}
+.stars3 {
+  opacity:.35;
+  background-image:
+    radial-gradient(1px 1px at 130px 90px, #ffffff 50%, transparent 51%),
+    radial-gradient(1px 1px at 330px 200px, #cfe7ff 50%, transparent 51%),
+    radial-gradient(0.9px 0.9px at 520px 260px, #9ee6ff 50%, transparent 51%);
+  background-size: 600px 600px;
+  animation: drift3 260s linear infinite;
+}
+@keyframes drift1 { from { background-position: 0 0 } to { background-position: -9000px 9000px } }
+@keyframes drift2 { from { background-position: 0 0 } to { background-position: -12000px 6000px } }
+@keyframes drift3 { from { background-position: 0 0 } to { background-position: -15000px 3000px } }
 
 body {
   background: radial-gradient(circle at 30% 20%, #2e1a23 0%, #0f0f1e 100%);
