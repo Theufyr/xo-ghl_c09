@@ -15,7 +15,7 @@ scoreDisplay("best_score", storageInfos.bestScore);
 
 // CERTIFICAT EN FIN DE PARTIE
 // on masque l'encart de certification
-const certifBlock = <HTMLDivElement>document.querySelector("#certification");
+const certifBlock = <HTMLElement>document.getElementById("confirmation");
 certifBlock.style.display = "none";
 
 // TIRAGE

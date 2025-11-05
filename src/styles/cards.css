@@ -5,21 +5,18 @@
 /*
     grid-template-columns en js
 */
-	grid-template-columns: 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5%;
 }
 .card {
-    border: none;
-    border-radius: 1%;
-	box-shadow: -10px 0 10px black;
-    height: 100%;
+  border: none;
+  border-radius: 2%;
+	box-shadow: -0.1rem 0 0.4rem black;
+  height: 5em;
 }
 .card.ok {
-    cursor: pointer;
+  cursor: pointer;
 }
 .card.ok:hover {
-/*
-    la carte se soulève
-*/
+  margin: 1em 0 0 0;
 }
 #card0, #card1, #card2, #card3, #card4, #card5,
 #card6, #card7, #card8, #card9, #card10, #card11,
@@ -30,12 +27,3 @@
 /*
     grid-column en js
 */
-#card0 {
-  grid-column: 2 / 4;
-}
-#card1 {
-  grid-column: 3 / 5;
-}
-#card2 {
-  grid-column: 4 / 6;
-}
