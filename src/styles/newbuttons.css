@@ -1,0 +1,23 @@
+button {
+    margin: 0.2rem;
+    padding: 0.2rem;
+    height: 2rem;
+	font-size: 0.7rem;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(-155deg, #f9c291, #836447);
+    box-shadow: -1px 1px 3px #964d0b;
+}
+button.ok {
+    cursor: pointer;
+}
+button.ok:hover {
+    background: linear-gradient(-155deg, #f9c291, #f98012);
+}
+button.chosen {
+    background: linear-gradient(-155deg, #f9c291, black);
+}
+button.off {
+    opacity: 0.5;
+}

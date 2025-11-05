@@ -1,0 +1,41 @@
+#deck {
+	width: 100%;
+	display: grid;
+	grid-template-rows: 100%;
+/*
+    grid-template-columns en js
+*/
+	grid-template-columns: 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5%;
+}
+.card {
+    border: none;
+    border-radius: 1%;
+	box-shadow: -10px 0 10px black;
+    height: 100%;
+}
+.card.ok {
+    cursor: pointer;
+}
+.card.ok:hover {
+/*
+    la carte se soulève
+*/
+}
+#card0, #card1, #card2, #card3, #card4, #card5,
+#card6, #card7, #card8, #card9, #card10, #card11,
+#card12, #card13, #card14, #card15, #card16, #card17,
+#card18, #card19, #card20, #card21, #card21  {
+  grid-row: 1 / 2;
+}
+/*
+    grid-column en js
+*/
+#card0 {
+  grid-column: 2 / 4;
+}
+#card1 {
+  grid-column: 3 / 5;
+}
+#card2 {
+  grid-column: 4 / 6;
+}

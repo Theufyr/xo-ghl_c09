@@ -1,6 +1,5 @@
 import shuffleArray from "./shuffleArray.js";
 import arcanesList from "./datas/arcanesList.js";
-// fonctions pour gérer les sauvegardes en localStorage
 import {setStorage, getStorage, storageInfos} from "./storage.js";
 
 
@@ -77,6 +76,7 @@ function createDeck(nb: number) {
         // on crée l'élément image de la carte face cachée
         const cardBack: HTMLImageElement = document.createElement("img");
         cardBack.id  = `card${value}`;
+        cardBack.className  = "card ok";
         cardBack.src  = "./src/assets/images/back.png";
         cardBack.alt = "Carte de Tarot face cachée";
         // on ajoute la carte au paquet
@@ -113,6 +113,11 @@ function createAction(id: number, blockId: string, text: string, title: string):
             if (blockId == "draw_selection") {
                 // on prépare le paquet de cartes
                 createDeck(id);
+            }
+            if (blockId == "answers") {
+// --------------------------------------------------------------------
+// on affiche les réponses
+// --------------------------------------------------------------------
             }
         }
     });

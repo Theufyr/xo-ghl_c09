@@ -2,15 +2,7 @@ import arcanesList from "./datas/arcanesList.js";
 // import drawCard from "./draw.js";
 import createAction from "./createAction.js";
 
-import arcaneTrial from "./trial.js";
-arcaneTrial();
-
-// on masque l'encart de certification
-const certifBlock = <HTMLDivElement>document.querySelector("#certification");
-certifBlock.style.display = "none";
-
 // GESTION SAUVEGARDE
-// sauvegarde localStorage et fonctions pour la gérer
 import {setStorage, getStorage, storageInfos} from "./storage.js";
 // affichage des scores
 function scoreDisplay(id: string, score: number): void {
@@ -20,6 +12,11 @@ function scoreDisplay(id: string, score: number): void {
 }
 scoreDisplay("user_score", storageInfos.userScore);
 scoreDisplay("best_score", storageInfos.bestScore);
+
+// CERTIFICAT EN FIN DE PARTIE
+// on masque l'encart de certification
+const certifBlock = <HTMLDivElement>document.querySelector("#certification");
+certifBlock.style.display = "none";
 
 // TIRAGE
 // liste de boutons pour choisir le nombre de cartes du tirage (nb de questions du quizz)
@@ -53,8 +50,6 @@ while (drawNumbers <= 22) {
         // créer et afficher la ou les carte(s) restante(s) face cachée
         // afficher l'encart "deck"
 // choisir une carte
-    // masquer l'encart "deck"
-    // masquer l'encart "draw"
     // mettre dans localStorage :
         // la carte choisie
         // la retirer du paquet
