@@ -1,35 +1,21 @@
 import arcanesList from "./datas/arcanesList.js";
-import drawCard from "./draw.js";
+// import drawCard from "./draw.js";
 import createAction from "./createAction.js";
-console.log(drawCard);
 
 import arcaneTrial from "./trial.js";
 arcaneTrial();
 
 // on masque l'encart de certification
-const drawDisplay = <HTMLDivElement>document.querySelector("#certification");
-drawDisplay.style.display = (storageInfos.selectedCard < 0) ? "flex" : "none";
+const certifBlock = <HTMLDivElement>document.querySelector("#certification");
+certifBlock.style.display = "none";
 
 // GESTION SAUVEGARDE
-// fonctions pour gérer les sauvegardes en localStorage
-import {setStorage, getStorage} from "./storage.js";
-// sauvegarde par défaut
-let storageInfos: {drawSelection: number[], selectedCard: number, userScore: number, bestScore: number} = {
-        drawSelection: new Array,
-        selectedCard: -1,           // les index de cartes vont de 0 à 21 compris
-        userScore: 0,
-        bestScore: 0
-    }
-// récupération de sauvegarde déjà existante
-const verifStorage: {drawSelection: number[], selectedCard: number, userScore: number, bestScore: number} | null = getStorage();
-if (verifStorage !== null) {
-    storageInfos  = verifStorage;
-}
+// sauvegarde localStorage et fonctions pour la gérer
+import {setStorage, getStorage, storageInfos} from "./storage.js";
 // affichage des scores
 function scoreDisplay(id: string, score: number): void {
     const changeScore: Text = document.createTextNode(`${score}`);
     const oldScore = <HTMLDivElement>document.getElementById(id);
-   // document.querySelector("#user_score")?.appendChild(changeScore);
     oldScore.textContent = changeScore.textContent;
 }
 scoreDisplay("user_score", storageInfos.userScore);
@@ -50,14 +36,9 @@ while (drawNumbers <= 22) {
     createAction(drawNumbers, "draw_selection", `${drawNumbers}`, `Tirage de ${drawNumbers} cartes`);
     drawNumbers = (drawNumbers + 2);
 }
-// si aucune carte n'est sélectionnée, on affiche l'encart "#draw"
-const drawDisplay = <HTMLDivElement>document.querySelector("#draw");
-drawDisplay.style.display = (storageInfos.selectedCard < 0) ? "flex" : "none";
 
-// choisir le nombre de cartes pour le tirage
-    // afficher encart "#draw" :
+// afficher dans "#deck" le nb de cartes choisies (ou restantes)
 // lancer le tirage de cartes
-    // masquer l'encart "#draw"
     // 1er tirage
         // mélanger toutes les cartes
         // n'en garder que le nombre demandé
