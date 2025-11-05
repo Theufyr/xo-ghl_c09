@@ -6,6 +6,12 @@
     <title>Divine Quizz</title>
     <link rel="stylesheet" href="src/styles/main.css" />
     <script defer src="dist/main.js" type="module"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kalnia+Glaze:wght@100..700&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <main>
@@ -21,11 +27,9 @@
         <div>Meilleur score : <span id="best_score"></span></div>
         <div id="authors"></div>
       </section>
-      <section>
-        <div id="diviner">
-          <img src="./src/assets/images/diviner.jpg" alt="">
-        </div>
-        <div id="table">
+      <section id="draw">
+        <div id="draw_diviner">
+          <img id="diviner" src="./src/assets/images/diviner.jpg" alt="" />
           <div id="deck"></div>
         </div>
       </section>
@@ -42,6 +46,16 @@
           </div>
         </div>
         <button id="next" type="button">Question suivante</button>
+        <!-- Soleil : pour actions ou tirages -->
+        <button class="solar">Tirer</button>
+        <button class="solar ok">Révéler</button>
+
+        <!-- Lune : pour validation ou navigation -->
+        <button class="lunar">Valider</button>
+        <button class="lunar ok">Continuer</button>
+
+        <!-- Lien : texte enchanté discret -->
+        <button class="link">Découvrir plus</button>
       </section>
     </main>
     <footer id="confirmation">
