@@ -10,11 +10,13 @@
   src: url(../assets/fonts/___fichier de font___);
 }
 */
+
 html {
   /* taille moyenne de font en mobile-first et référence rem pour la page */
   font-size: 14px;
 }
 body {
+  
   font-size: 1rem;
   /* 
     font-family: ___nom perso pour la font des textes___;
