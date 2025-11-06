@@ -1,19 +1,11 @@
-import arcaneDatabase from "./database.js";
-import createAction from "./createAction.js";
+import arcanesList from "./datas/arcanesList.js";
+import {scoreDisplay, createAction} from "./createAction.js";
+import shuffleArray from "./shuffleArray.js";
 
-/// déclaration de variables
+// déclaration de variables
 let drawnCards: number[] = [];  // tous les index des cartes déjà tirées
 let cardsDeck: number[] = [];   // tous les index des cartes en base de données
-arcaneDatabase.map((value, index) => cardsDeck.push(index));
-
-// fonction de mélange
-function shuffleArray(array: any[]): void {
-  let i: number = array.length;
-  while (i) {
-    const j: number = Math.floor(Math.random() * i--);
-    [array[i], array[j]] = [array[j], array[i]];
-  }
-}
+arcanesList.map((value: any, index: number) => cardsDeck.push(index));
 
 // on enlève les cartes déjà tirées qu'elles soient à nouveau tirées
 function deckUpdate(drawned: number[], all: number[]): number[] {
@@ -56,26 +48,25 @@ cardsDeck.forEach((value) => {
       drawStatus = false;
       // on affiche la question
       const questionElement = <HTMLElement>document.querySelector("#question");
-      const questionDisplay: any = arcaneDatabase[value]?.question;
+      const questionDisplay: string = arcanesList[value]?.question + " :";
       questionElement.textContent  = questionDisplay;
       // on mélange et on affiche les réponses
       let answersList = [
-                          arcaneDatabase[value]?.proposition1,
-                          arcaneDatabase[value]?.proposition2,
-                          arcaneDatabase[value]?.proposition3,
-                          arcaneDatabase[value]?.answer
+                          arcanesList[value]?.proposition1,
+                          arcanesList[value]?.proposition2,
+                          arcanesList[value]?.proposition3,
+                          arcanesList[value]?.answer
                         ];
       shuffleArray(answersList);
-console.table(answersList);
-      answersList.forEach((answerText: any, index: number) => {
-console.log(answerText);
+      answersList.forEach((answerText: string | undefined, index: number) => {
+        const answerTextSend: string = answerText as string;
         // envoyer :
         // - id du bouton
         // - id du block dans lequel ajouter les boutons
         //   (qui servira aussi à savoir quel type d'action aura le bouton)
         // - le texte affiché dans le bouton
         // - le titre ou alt informant de sa fonctionnalité
-        createAction(index, "answers", answerText, "Réponse : " + answerText);
+        createAction(index, "answers", answerTextSend, "Réponse possible");
       });
     }
   });

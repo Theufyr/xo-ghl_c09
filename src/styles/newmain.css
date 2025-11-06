@@ -1,0 +1,90 @@
+/* 
+@font-face {
+  font-family: "KalniaGlaze01";
+  src: url(../assets/fonts/KalniaGlaze_Expanded-Bold.ttf);
+}
+
+@font-face {
+  font-family: "KalniaGlaze02";
+  src: url(../assets/fonts/KalniaGlaze-Bold.ttf);
+}
+ */
+html {
+  /* taille moyenne de font en mobile-first et référence rem pour la page */
+  font-size: 14px;
+}
+body {
+  background-color: black;
+  font-size: 0.2rem;
+  /* font-family: "KalniaGlaze01";
+  font-palette: light; */
+  /* 
+    font-family: ___nom perso pour la font des textes___;
+    color: ___couleur de la font___;
+    text-align: ___alignement textes et éléments___;
+    background: ___image et/ou couleur de fond___;
+  /*
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-size: contain;
+  justify-content: center;
+  padding: 20px;*/
+}
+h1,
+h2 {
+  font-size: 2rem;
+  /* font-family: "KalniaGlaze01"; */
+}
+h2 {
+  font-size: 1.5rem;
+}
+.small {
+  font-size: 0.5rem;
+}
+main, #card_actions, #answers {
+  width:100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+#card_image {
+  width:40%;
+}
+#card_answers {
+  width:60%;
+}
+#selected {
+  width: 100%;
+}
+section {
+  padding:1%;
+  width:100%;
+}
+#diviner, #table {
+  width: 100%;
+}
+
+/* responsive mobile-first */
+@media (min-width: 640px) {
+  /* tablettes */
+  html {
+    /* taille moyenne de font et référence rem pour la page */
+    font-size: 16px;
+  }
+}
+@media (min-width: 1024px) {
+  /* grands écrans */
+  html {
+    /* taille moyenne de font et référence rem pour la page */
+    font-size: 18px;
+  }
+}
+@media(min-width: 640px), (min-width: 1024px) {
+  section {
+    width:30%;
+  }
+}

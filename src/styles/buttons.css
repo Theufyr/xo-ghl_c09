@@ -1,23 +1,71 @@
+@keyframes sparkle {
+  0%, 100% { box-shadow: 0 0 10px rgba(255, 224, 110, 0.877); }
+  50% { box-shadow: 0 0 20px rgba(164, 126, 248, 0.7); }
+}
+
 button {
-    margin: 0.2rem;
-    padding: 0.2rem;
-    height: 2rem;
-	font-size: 0.7rem;
-    color: white;
-    border: none;
-    border-radius: 10px;
-    background: linear-gradient(-155deg, #f9c291, #836447);
-    box-shadow: -1px 1px 3px #964d0b;
+  position: relative;
+  overflow: hidden;
+  margin: 0.35rem;
+  padding: 0.3rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  color: var(--fg-light);
+  border: 1px solid rgba(255, 209, 102, .3);
+  border-radius: 12px;
+  transition: transform .25s ease, box-shadow .35s ease, background .35s ease;
+  background: linear-gradient(135deg, var(--accent-violet) 0%, var(--accent-gold) 100%);
+  box-shadow: 0 0 12px rgba(255, 209, 102, .4);
+  animation: sparkle 3s infinite ease-in-out;
 }
 button.ok {
-    cursor: pointer;
-}
-button.ok:hover {
-    background: linear-gradient(-155deg, #f9c291, #f98012);
+  cursor: pointer;
+  background: linear-gradient(135deg, #2e7d32, #e103f14d);
+  box-shadow: 0 0 12px rgba(76, 175, 80, 0.6);
 }
 button.chosen {
-    background: linear-gradient(-155deg, #f9c291, black);
+  background: linear-gradient(-155deg, #98ac93, rgb(60, 2, 132));
+  box-shadow: 0 0 20px rgba(164,126,248, 0.6);
 }
+/* --- Quand désactivé (hors jeu) --- */
 button.off {
-    opacity: 0.5;
+  filter: grayscale(40%);
+  opacity: 0.5;
+}
+button:focus-visible {
+  outline: 2px solid #ffd166;
+  outline-offset: 3px;
+}
+/* --- Clic : effet pulsation magique --- */
+button:active {
+  transform: scale(0.97);
+  box-shadow: 0 0 10px rgba(255, 223, 110, 0.5);
+}
+button:hover::before {
+  left: 130%;
+}
+/* --- Effet de lumière magique survol --- */
+button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(120deg, rgba(255, 255, 255, 0.3), transparent);
+  transform: skewX(-20deg);
+  transition: all 0.5s ease;
+  z-index: 1;
+}
+/* --- Effet de survol : glow doré et ombre mouvante --- */
+button.ok:hover {
+  background: linear-gradient(135deg, #cdaaffe7, #9afca5);
+  box-shadow: 0 0 15px rgba(255, 223, 110, 0.8),
+              0 0 25px rgba(164, 126, 248, 0.4);
+  transform: translateY(-2px);
+  font-weight: 600;
+  color: #100024;
+}
+button#good_answer  {
+  background: linear-gradient(-155deg, #98ac93, rgb(46, 237, 8));
 }

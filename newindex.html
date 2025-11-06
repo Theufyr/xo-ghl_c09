@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Divine Quizz</title>
+    <link rel="stylesheet" href="src/styles/main.css" />
+    <script defer src="dist/main.js" type="module"></script>
+  </head>
+  <body>
+    <main>
+      <section id="rules">
+      <h1>Divine Quizz</h1>
+        <h2>Déroulement de la séance <span class="small">(afficher / masquer)</span></h2>
+        <div id="explanation"></div>
+        <h2>Tirage de carte</h2>
+        <div id="draw_selection">
+          <h3>Mélange ton destin <span class="small">(choisis le nombre d'arcane à tirer)</span></h3>
+        </div>
+        <div>Score actuel : <span id="user_score"></span></div>
+        <div>Meilleur score : <span id="best_score"></span></div>
+        <div id="authors"></div>
+      </section>
+      <section>
+        <div id="diviner">
+          <img src="./src/assets/images/diviner.jpg" alt="">
+        </div>
+        <div id="table">
+          <div id="deck"></div>
+        </div>
+      </section>
+      <section id="trial">
+        <h2>Épreuve</h2>
+        <div id="question"></div>
+        <div id="card_actions">
+          <div id="card_image">
+            <img id="selected" src="./src/assets/images/back.png" alt="Carte de Tarot face cachée" />
+          </div>
+          <div id="card_answers">
+            <div id="answers"></div>
+            <div id="hourglass"></div>
+          </div>
+        </div>
+        <button id="next" type="button">Question suivante</button>
+      </section>
+    </main>
+    <footer id="confirmation">
+        <h2>Confirmation</h2>
+        <img src="./src/assets/images/back.png" alt="Ton certificat" />
+        <div id="certification"></div>
+    </footer>
+  </body>
+</html>

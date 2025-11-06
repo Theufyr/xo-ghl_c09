@@ -1,80 +1,118 @@
 @import "reset.css";
 @import "buttons.css";
-/* 
+/* @import "newmain.css";
+@import "newbuttons.css"; */
+@import "cards.css";
+
 @font-face {
-  font-family: ___nom perso pour la font des textes___;
-  src: url(../assets/fonts/___fichier de font___);
+  font-family: "BigFont";
+  src: url(../assets/fonts/KalniaGlaze_Expanded-Bold.ttf);
 }
 @font-face {
-  font-family: ___nom perso pour la font des titres___;
-  src: url(../assets/fonts/___fichier de font___);
+  font-family: "TitlesFont";
+  src: url(../assets/fonts/Achafexp.ttf);
 }
-*/
+@font-face {
+  font-family: "CurrentFont";
+  src: url(../assets/fonts/CormorantUpright-Regular.otf);
+}
+
+@keyframes drift1 { from { background-position: 0 0 } to { background-position: -9000px 9000px } }
+@keyframes drift2 { from { background-position: 0 0 } to { background-position: -12000px 6000px } }
+@keyframes drift3 { from { background-position: 0 0 } to { background-position: -15000px 3000px } }
+
 html {
   /* taille moyenne de font en mobile-first et référence rem pour la page */
   font-size: 14px;
 }
 body {
-  font-size: 1rem;
-  /* 
-    font-family: ___nom perso pour la font des textes___;
-    color: ___couleur de la font___;
-    text-align: ___alignement textes et éléments___;
-    background: ___image et/ou couleur de fond___;
-  /*
-  background-position: center;
-  background-repeat: no-repeat;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-size: contain;
-  justify-content: center;
-  padding: 20px;*/
+  background: radial-gradient(circle at 30% 20%, #2e1a23 0%, #0f0f1e 100%);
+  color: #ffc0fbf0;
+  font-family: "CurrentFont";
+  font-size: 1.2rem;
 }
-#draw {
-  width: 100%;
-   height: 100vh;
+a:any-link {
+  color: #86d449;
+  text-decoration: none;
 }
-#diviner {
-
-  width: 45%;
-  
-
-}
-#deck {
-  width: 100%;
-   height: 20%;
+a:hover {
+  color: #e1fe5c;
+  text-decoration: overline;
 }
 h1,
 h2 {
-  font-size: 2rem;
-  /*
-    font-family: ___nom perso pour la font des titres___;
-    */
+  margin-bottom: 0.5rem;
+  font-size: 1.5rem;
+  font-family: "BigFont";
+  text-align: center;
 }
 h2 {
-  font-size: 1.5rem;
-  /*
-    font-size: ___taille moyenne de font des sous-titres___;
-    */
+  font-size: 2rem;
+  font-family: "TitlesFont";
+  color: #c53dc6;
+  text-shadow: rgba(239, 237, 232, 0.87) 0.1rem 0 0.5rem;
 }
-span {
-  font-size: 0.5rem;
+.border_light {
+  border: 1px solid rgba(255, 209, 102, .3);
+  border-radius: 12px;
+  transition: transform .25s ease, box-shadow .35s ease, background .35s ease;
+  background: linear-gradient(135deg, var(--accent-violet) 0%, var(--accent-gold) 100%);
+  box-shadow: 0 0 12px rgba(255, 209, 102, .4);
+  animation: sparkle 3s infinite ease-in-out;
 }
-img {
-  margin: 5px;
-  width: 50px;
+.small, #more_infos {
+  font-size: 0.9rem;
 }
-main {
-  display: flex;
-  justify-content: center;
+#more_infos {
+  margin-top: 0.5rem;
+  padding: 0.5rem;
 }
-#deck,
-#answers {
+.medium {
+  font-size: 1.1rem;
+}
+
+main, #card_actions, #answers {
+  width:100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+}
+#answers {
+  gap: 1rem;
+}
+#draw_diviner {
+  text-align: center;
+}
+#card_image {
+  width:40%;
+}
+#card_answers {
+  width:60%;
+}
+#selected {
+  width: 100%;
+}
+section {
+  padding:1%;
+  width:100%;
+}
+#diviner, #table {
+  width: 100%;
+}
+#question {
+  padding:1%;
+  text-align: right;
+}
+#validation {
+  margin: auto;
+}
+#confirmation {
+  width: 100%;
+  text-align: center;
+}
+#certif_div {
+  width: 30%;
+  margin: auto;
 }
 
 /* responsive mobile-first */
@@ -90,5 +128,10 @@ main {
   html {
     /* taille moyenne de font et référence rem pour la page */
     font-size: 18px;
+  }
+}
+@media(min-width: 640px), (min-width: 1024px) {
+  section {
+    width:30%;
   }
 }
