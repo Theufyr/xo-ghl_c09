@@ -14,22 +14,26 @@
     />
   </head>
   <body>
-    <main>
+    <main id="main_page">
+      <base target="_blank" />
       <section id="rules">
-      <h1>Divine Quizz</h1>
-        <h2>Déroulement de la séance <span class="small">(afficher / masquer)</span></h2>
-        <div id="explanation"></div>
-        <h2>Tirage de carte</h2>
-        <div id="draw_selection">
-          <h3>Mélange ton destin <span class="small">(choisis le nombre d'arcane à tirer)</span></h3>
-        </div>
+        <h2>Tirage de cartes</h2>
+        <h3>Mélange ton destin</h3>
+        <p class="small">(choisis le nombre d'arcanes à tirer)</p>
+        <div id="draw_selection"></div>
         <div>Score actuel : <span id="user_score"></span></div>
         <div>Meilleur score : <span id="best_score"></span></div>
-        <div id="authors"></div>
+        <div>
+          Projet réalisé par <a href="https://github.com/w2201">w2201</a> & <a href="https://github.com/Theufyr">Theufyr</a>
+        </div>
+        <div id="more_infos" class="border_light"></div>
       </section>
       <section id="draw">
+        <h1>Divine <span class="medium">Quizz</span></h1>
         <div id="draw_diviner">
-          <img id="diviner" src="./src/assets/images/diviner.jpg" alt="" />
+          <img id="diviner" class="border_light" src="./src/assets/images/diviner.jpg" alt="" />
+          <h2 id="draw_invite">Tire une carte</h2>
+          <button id="validation" class="ok">Fin de séance</button>
           <div id="deck"></div>
         </div>
       </section>
@@ -45,23 +49,15 @@
             <div id="hourglass"></div>
           </div>
         </div>
-        <button id="next" type="button">Question suivante</button>
-        <!-- Soleil : pour actions ou tirages -->
-        <button class="solar">Tirer</button>
-        <button class="solar ok">Révéler</button>
-
-        <!-- Lune : pour validation ou navigation -->
-        <button class="lunar">Valider</button>
-        <button class="lunar ok">Continuer</button>
-
-        <!-- Lien : texte enchanté discret -->
-        <button class="link">Découvrir plus</button>
       </section>
     </main>
     <footer id="confirmation">
         <h2>Confirmation</h2>
-        <img src="./src/assets/images/back.png" alt="Ton certificat" />
+        <div id="certif_div">
+          <img id="certif_image" class="border_light" src="./src/assets/images/back.png" alt="Ton certificat" />
+        </div>
         <div id="certification"></div>
+        <button id="restart" class="ok">Rejouer</button>
     </footer>
   </body>
 </html>

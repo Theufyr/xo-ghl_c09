@@ -1,5 +1,5 @@
 import arcanesList from "./datas/arcanesList.js";
-import createAction from "./createAction.js";
+import {scoreDisplay, createAction} from "./createAction.js";
 import shuffleArray from "./shuffleArray.js";
 
 // déclaration de variables
