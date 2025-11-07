@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Ce projet a pour objectif de **développer une application de quiz interactive** en utilisant les langages front-end **HTML**, **CSS** et **JavaScript**.",
   "main": "index.js",
-  "type":"module",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -17,6 +17,8 @@
   "bugs": {
     "url": "https://github.com/Theufyr/xo-ghl_c09/issues"
   },
-  "homepage": "https://github.com/Theufyr/xo-ghl_c09#readme"
-  
+  "homepage": "https://github.com/Theufyr/xo-ghl_c09#readme",
+  "devDependencies": {
+    "ts-node": "^10.9.2"
+  }
 }
