@@ -2,6 +2,14 @@ import shuffleArray from "./shuffleArray.js";
 import arcanesList from "./datas/arcanesList.js";
 import arcanesComments from "./datas/arcanesComments.js";
 import {setStorage, storageInfos} from "./storage.js";
+// ---------------------------------------------
+// LORS D'UN RECHARGEMENT DE LA PAGE
+// REINITIALISATION S'IL Y AVAIT UNE PARTIE EN COURS
+// ---------------------------------------------
+setStorage([-2], -2, 0, 0, -1);
+// ---------------------------------------------
+// RECUPERATION DES ELEMENTS NECESSAIRES
+// ---------------------------------------------
 // page principale
 const mainPage = <HTMLElement>document.getElementById("main_page");
 // paquet de cartes
@@ -41,13 +49,6 @@ validationButton.addEventListener("click", () => {
     validationButton.style.display = "none";
     certifBlock.style.display = "inherit";
 });
-// ---------------------------------------------
-// ELEMENTS A AFFICHER LORS D'UN RECHARGEMENT
-// DE LA PAGE S'IL Y AVAIT UNE PARTIE EN COURS
-// ---------------------------------------------
-// 
-// __________________________________________________________________________
-
 
 // ---------------------------------------------
 // NETTOYAGE D'UN ELEMENT
@@ -329,8 +330,6 @@ function createAction(id: number, blockId: string, text: string, title: string):
                     // on enregistre et on affiche le nouveau score
                     setStorage(storageInfos.drawSelection, storageInfos.selectedCard, storageInfos.scoreMax, storageInfos.userScore, storageInfos.bestScore);
                     scoreDisplay("user_score", storageInfos.userScore);
-                } else {
-                    // mauvaise réponse
                 }
                 // on affiche les informations supplémentaires à propos de la carte
                 const moreInfosText: string = arcanesComments[storageInfos.selectedCard] as string;
@@ -363,7 +362,7 @@ function createAction(id: number, blockId: string, text: string, title: string):
                         congratsMessage.style.display = "inherit";
                     }
                     const certifImage = <HTMLImageElement>document.getElementById("certif_image");
-                    certifImage.src = `./src/assets/images/certificats/${certificationImage}.png`;
+                    certifImage.src = `./src/assets/images/certificates/${certificationImage}.png`;
                     // on affiche le bouton pour passer au cerfificat de fin de partie
                     validationButton.style.display = "inherit";
                 // sinon on reprend
