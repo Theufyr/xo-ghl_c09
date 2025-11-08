@@ -114,7 +114,7 @@ const arcanesList: {cardname: string, question: string, proposition1: string, pr
         {
                 cardname: "XIIII",
                 question: "La Tempérance est associée",
-                proposition1: "À l'extrême",
+                proposition1: "À l'excès",
                 proposition2: "Au déséquilibre",
                 proposition3: "À l'incompréhension",
                 answer: "L'harmonie",

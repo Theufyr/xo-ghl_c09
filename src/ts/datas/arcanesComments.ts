@@ -8,7 +8,7 @@ const arcaneComments: string[] = [
         "C'est une carte qui incarne l'amour, l'union et l'équilibre dans les relations, ainsi que la prise de décisions importantes concernant le cœur et les relations personnelles.",
         "C'est une carte qui représente la maîtrise de soi, la confiance en soi et la capacité à surmonter les obstacles grâce à la volonté et à la discipline.",
         "La Justice symbolise l'équité, la vérité et la responsabilité, représentant l'importance de prendre des décisions justes et équilibrées basées sur des principes moraux et éthiques.",
-        "C'est une carte qui incarne la recherche de la vérité intérieure, la contemplation et la quête de sagesse à travers l'introspection et la solitude.",
+        "C'est une carte qui incarne la recherche de la vérité intérieure, la contemplation et la poursuite de sagesse à travers l'introspection et la solitude.",
         "C'est une carte qui représente les hauts et les bas de la vie, les cycles de changement et l'inévitabilité du destin, soulignant l'importance de s'adapter aux fluctuations de la vie.",
         "La Force symbolise le courage, la maîtrise de soi et la résilience, représentant la capacité à surmonter les défis avec compassion, patience et détermination intérieure.",
         "C'est une carte qui incarne la nécessité de lâcher prise, de voir les choses sous un angle différent et de faire des sacrifices pour la croissance personnelle et spirituelle.",
