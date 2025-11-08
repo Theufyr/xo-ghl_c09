@@ -47,4 +47,4 @@ function setStorage(dSelect: number[], sCard: number, sMax: number, uScore: numb
     // on sérialise et on sauvegarde
     localStorage.setItem("storageInfos", JSON.stringify(storageInfos));
 }
-export {setStorage, getStorage, storageInfos};
+export {setStorage, storageInfos};

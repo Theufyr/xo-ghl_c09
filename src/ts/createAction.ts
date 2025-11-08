@@ -1,7 +1,7 @@
 import shuffleArray from "./shuffleArray.js";
 import arcanesList from "./datas/arcanesList.js";
 import arcanesComments from "./datas/arcanesComments.js";
-import {setStorage, getStorage, storageInfos} from "./storage.js";
+import {setStorage, storageInfos} from "./storage.js";
 // page principale
 const mainPage = <HTMLElement>document.getElementById("main_page");
 // paquet de cartes
@@ -10,6 +10,12 @@ const deckDisplay = <HTMLImageElement>document.getElementById("deck");
 const cardSelected   = <HTMLImageElement>document.querySelector("#selected");
 // la question
 const questionElement = <HTMLElement>document.querySelector("#question");
+// bouton pour réinitialiser le meilleur score
+const initBestScore = <HTMLButtonElement>document.getElementById("init_best_score");
+initBestScore.addEventListener("click", () => {
+    setStorage(storageInfos.drawSelection, storageInfos.selectedCard, storageInfos.scoreMax, storageInfos.userScore, 0);
+    scoreDisplay("best_score", storageInfos.bestScore);
+});
 // ---------------------------------------------
 // ELEMENTS A MASQUER AU DEPART
 // ---------------------------------------------
@@ -19,6 +25,9 @@ moreInfos.style.display = "none";
 // le message d'invitation à tirer une carte
 const drawInvite = <HTMLElement>document.getElementById("draw_invite");
 drawInvite.style.visibility = "hidden";
+// le message de félicitation lors d'un meilleur score
+const congratsMessage = <HTMLElement>document.getElementById("congrats");
+congratsMessage.style.display = "none";
 // encart de certification pour fin de partie
 const certifBlock = <HTMLElement>document.getElementById("confirmation");
 certifBlock.style.display = "none";
@@ -32,6 +41,12 @@ validationButton.addEventListener("click", () => {
     validationButton.style.display = "none";
     certifBlock.style.display = "inherit";
 });
+// ---------------------------------------------
+// ELEMENTS A AFFICHER LORS D'UN RECHARGEMENT
+// DE LA PAGE S'IL Y AVAIT UNE PARTIE EN COURS
+// ---------------------------------------------
+// 
+// __________________________________________________________________________
 
 
 // ---------------------------------------------
@@ -58,6 +73,8 @@ function restartGame(): void {
     cleanBlock("deck");
     // on refait apparaître le paquet de cartes
     deckDisplay.style.display = "grid";
+    // on efface l'éventuel message de félicitation
+    congratsMessage.style.display = "none";
     // on remet une carte face cachée dans la sélection
     cardSelected.src     = "./src/assets/images/back.png";
     cardSelected.alt     = "Carte de Tarot face cachée";
@@ -72,8 +89,6 @@ function restartGame(): void {
     buttonsOff(-1, "draw_selection", true);
     // on affiche la page principale
     mainPage.style.display = "flex";
-// ______________________________________________________________________
-// ----------------------------------------------------------------------
 }
 
 // bouton pour relancer un jeu
@@ -86,7 +101,12 @@ restartButton.addEventListener("click", () => {
 // AFFICHAGE DES SCORES
 // ---------------------------------------------
 function scoreDisplay(id: string, score: number): void {
-    const changeScore: Text = document.createTextNode(`${score}`);
+    let newScore: string = `${score}`;
+    if (id == "best_score") {
+        const certificatesImg: string[] = ["Le Fou", "Le Chariot", "La Force", "Les Étoiles", "La Papesse"];
+        newScore = certificatesImg[score] as string;
+    }
+    const changeScore: Text = document.createTextNode(newScore);
     const oldScore = <HTMLDivElement>document.getElementById(id);
     oldScore.textContent = changeScore.textContent;
 }
@@ -104,12 +124,9 @@ function buttonsOff(id: number, buttonClass: string, activate: boolean) {
             if (activate !== true) {
                 button.classList.remove("ok");
             } else {
-                // on réinitialise si le paquet est vide
-                if (storageInfos.drawSelection[0] === undefined) {
-// ______________________________________________________________________
-// ----------------------------------------------------------------------
                 // sinon on réactive le tirage de cartes
-                } else {
+                // si le paquet n'est pas vide
+                if (storageInfos.drawSelection[0] !== undefined) {
                     button.classList.add("ok");
                 }
             }
@@ -173,10 +190,8 @@ function cardDisplay(nb: number) {
     storageInfos.drawSelection.splice(cardIndex, 1);
     // on sauvegarde le paquet réduit
     setStorage(storageInfos.drawSelection, nb, -1, -1, -1);
-    // s'il vient d'être vidé, on le réinitialise et on ne l'affiche plus
+    // s'il vient d'être vidé on ne l'affiche plus
     if (storageInfos.drawSelection[0] === undefined) {
-// ______________________________________________________________________
-// ----------------------------------------------------------------------
         deckDisplay.style.display = "none";
     } else {
         // on re-génère l'affichage du paquet sans la carte tirée
@@ -274,7 +289,7 @@ function createAction(id: number, blockId: string, text: string, title: string):
     let goodAnswer: string = "";
     if (blockId == "answers") {
         // si c'est la bonne réponse
-        if (text == arcanesList[id]?.answer) {
+        if (text == arcanesList[storageInfos.selectedCard]?.answer) {
                 goodAnswer = " good";
         }
     }
@@ -304,7 +319,7 @@ function createAction(id: number, blockId: string, text: string, title: string):
                 const allAnwsers: HTMLCollection = document.getElementsByClassName("good");
                 const allAnwsersArray: Element[] = Array.from(allAnwsers);
                 allAnwsersArray.forEach((button: Element) => {
-                    button.id = "good_answer";
+                    button.classList.add("good_answer");
                 });
                 // on vérifie la réponse
                 if (text == arcanesList[storageInfos.selectedCard]?.answer) {
@@ -327,11 +342,26 @@ function createAction(id: number, blockId: string, text: string, title: string):
                 if (storageInfos.drawSelection[0] === undefined) {
                     // on compare le score pour définir le niveau
                     // on choisit le certificat
-                    const certificationImage: number = Math.floor((storageInfos.userScore * 5) / storageInfos.scoreMax);
+                    const certificatesLevels: number[] = [0, 1, 2, 3, 4];
+                    let certificationImage: number = Math.floor((storageInfos.userScore * 4) / storageInfos.scoreMax);
+                    // 5 cerfications possibles :
+                    // - score 0
+                    // - score entre 0 et la moyenne
+                    certificationImage = ((storageInfos.userScore > 0) && (storageInfos.userScore < (storageInfos.scoreMax / 2))) ? 1 : 0;
+                    // - score = à la moyenne
+                    certificationImage = (storageInfos.userScore == (storageInfos.scoreMax / 2)) ? 2 : certificationImage;
+                    // - score entre la moyenne et le score max
+                    certificationImage = ((storageInfos.userScore > (storageInfos.scoreMax / 2)) && (storageInfos.userScore < storageInfos.scoreMax)) ? 3 : certificationImage;
+                    // - score max
+                    certificationImage = (storageInfos.userScore == storageInfos.scoreMax) ? 4 : certificationImage;
                     // on met en mémoire si c'est un meilleur score
-                    
-// ______________________________________________________________________
-// ----------------------------------------------------------------------
+                    if (certificationImage > storageInfos.bestScore) {
+                        storageInfos.bestScore = certificationImage;
+                        setStorage(storageInfos.drawSelection, storageInfos.selectedCard, storageInfos.scoreMax, storageInfos.userScore, storageInfos.bestScore);
+                        scoreDisplay("best_score", storageInfos.bestScore);
+                        // on affiche le message de félicitation
+                        congratsMessage.style.display = "inherit";
+                    }
                     const certifImage = <HTMLImageElement>document.getElementById("certif_image");
                     certifImage.src = `./src/assets/images/certificats/${certificationImage}.png`;
                     // on affiche le bouton pour passer au cerfificat de fin de partie
@@ -341,11 +371,6 @@ function createAction(id: number, blockId: string, text: string, title: string):
                     // on affiche le message d'invitation à tirer une carte
                     drawInvite.style.visibility = "visible";
                 }
-// quand le paquet est vide :
-// masquer le message d'invitation à tirer une carte
-// proposer un nouveau jeu
-// ______________________________________________________________________
-// ----------------------------------------------------------------------
             }
         }
     });
