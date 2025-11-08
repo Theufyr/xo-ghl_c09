@@ -1,6 +1,5 @@
-import arcanesList from "./datas/arcanesList.js";
 import {scoreDisplay, createAction} from "./createAction.js";
-import {setStorage, getStorage, storageInfos} from "./storage.js";
+import {storageInfos} from "./storage.js";
 
 // affichage des scores
 scoreDisplay("user_score", storageInfos.userScore);

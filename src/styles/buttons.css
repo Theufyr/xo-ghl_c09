@@ -8,6 +8,7 @@ button {
   overflow: hidden;
   margin: 0.35rem;
   padding: 0.3rem;
+  min-width: 2rem;
   font-size: 0.8rem;
   letter-spacing: 0.04em;
   color: var(--fg-light);
@@ -66,6 +67,10 @@ button.ok:hover {
   font-weight: 600;
   color: #100024;
 }
-button#good_answer  {
+button.off.good_answer  {
   background: linear-gradient(-155deg, #98ac93, rgb(46, 237, 8));
+  color: #100024;
+}
+button.chosen.good_answer  {
+  background: linear-gradient(-155deg, #98ac9344, rgba(46, 237, 8, 0.295));
 }
