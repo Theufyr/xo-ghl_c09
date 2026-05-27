@@ -21,12 +21,14 @@ setStorage([StoreReload], StoreReload, StoreInit, StoreInit, StoreNoChanges);
 Pour les utiliser de façon globale, ces variables sont à rassembler dans un module séparé importé dans :
 - `createAction.ts`
 - `storage.ts`
----
-# Cohérence
+
+#### Cohérence
 - uniformiser les recherches d'id du DOM : la plupart sont déjà appelés par `getElementById`
 	- remplacer `querySelector("#more_infos")` par `getElementById("more_infos")`
 	- idem avec `querySelector("#question")`, `querySelector("#selected")` et `querySelector("#deck")`
 
+---
+---
 
 # Refacto
 
